@@ -12,4 +12,4 @@ app.use(cors())
 
 app.get('/colleges/:id',getCollegeById);
 app.get('/colleges',getColleges);
-app.listen(5000)
+app.listen(process.env.PORT||5000);
