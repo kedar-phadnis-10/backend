@@ -11,8 +11,9 @@ exports.getCollegeById = async(req,res)=>{
     const {id} = req.params;
     const collegeDetails = (await College.findById(id).exec()).toJSON();
     const collegeStudents = (await Student.find({collegeId:id}).exec()).map(student=>student.toJSON());
-    console.log(collegeDetails,collegeStudents);
-    res.status(200).json({collegeStudents,collegeDetails});
+    const similarColleges = (await College.find({$or:[{state:collegeDetails.state},{courses:{$in:collegeDetails.courses}}]}).exec()).map(college=>college.toJSON());
+    // console.log(collegeDetails);
+    res.status(200).json({collegeStudents,collegeDetails,similarColleges});
 
 }
 
@@ -28,7 +29,6 @@ exports.insertColleges = (req,res)=>{
         college.courses = arr;
         college.numStudents = 100;
         collegesList.push(new College(college));
-        console.log(arr);
     })
 
     College.insertMany(collegesList).then(()=>{
