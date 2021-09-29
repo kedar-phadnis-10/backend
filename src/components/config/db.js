@@ -3,7 +3,7 @@ const options = {
     reconnectTries: Number.MAX_VALUE,
     poolSize: 10
   };
-const dbURI = 'mongodb+srv://santhosh:UShY7zNJ6jRNxdgy@cluster0.dd3oj.mongodb.net/oneshot?retryWrites=true&w=majority';
+const dbURI = 'mongodb+srv://ce17b040:abc123456@cluster0.wc7jg.mongodb.net/oneshot?retryWrites=true&w=majority';
 mongoose.connect(dbURI, options).then(
     () => {
       console.log("Database connection established!");

@@ -7,9 +7,9 @@ const { insertStudent, insertStudentsByCollegeId, findStudentsByCollegeId, getSt
 const { insertColleges, getCollegeById, getColleges } = require('./src/components/colleges/collegecontroller')
 app.use(bp.json())
 app.use(cors())
-// app.post('/student',insertStudent)
-// app.post('/mockstudents',insertStudentsByCollegeId)
 
+// app.post('/mockstudents',insertStudentsByCollegeId)
+// app.post('/mockcolleges',insertColleges)
 app.get('/colleges/:id',getCollegeById);
 app.get('/colleges',getColleges);
 app.listen(process.env.PORT||5000);

@@ -34,6 +34,7 @@ exports.insertColleges = (req,res)=>{
     College.insertMany(collegesList).then(()=>{
         res.status(201).send();
     }).catch(err=>{
+        console.log(err);
         res.status(400).send();
     })
 }
